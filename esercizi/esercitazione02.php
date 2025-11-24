@@ -57,7 +57,7 @@ $persone = [
 
 $anni = 0;
 
-foreach ($persone as $persona) :
+foreach ($persone as $persona) : 
     if($persona["eta"] >= 18):
         echo $persona["nome"];
     endif;
@@ -65,7 +65,38 @@ foreach ($persone as $persona) :
 endforeach;
 echo ($anni / count($persone));
 
+/*es 04
+*data l'età di una persona, ritorna se può guidare il 125
+*/
+$eta = 15;
+function calcola_125($eta) {
+    if($eta >= 16):
+        return "La persona può guidare il 125";
+    else:
+        return "La persona non può guidare il 125";
+    endif;
+        
+}
+echo calcola_125($eta);
 
+/*es 05
+*dato un numero verifica se è divisibile per 3
+*/
+
+$numero = 10;
+
+function calcola_multiplo_3($numero) {
+    if($numero % 3 == 0):
+        return "il numero è multiplo di 3";
+    else:
+        return "il numero non è un multiplo di 3";
+    endif;
+}
+
+echo calcola_multiplo_3($numero);
+/*es06 
+*dato un numero, riformalo in modalità EURO
+*/
 
 
 ?>

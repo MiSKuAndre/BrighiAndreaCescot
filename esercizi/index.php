@@ -133,4 +133,112 @@
         endif;
     endfor;*/
 
+
+    //CAMBIARE I NOMI DELL'ARRAY
+    $settimana = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+
+    for($i=0; $i<count($settimana); $i++):
+        switch($settimana[$i]):
+            case "monday":
+                echo "lunedi";
+                break;
+            case "tuesday":
+                echo "martedi";
+                break;
+            case "wednesday":
+                echo "mercoledi";
+                break;
+            case "thursday":
+                echo "giovedi";
+                break;
+            case "friday":
+                echo "venerdi";
+                break;
+            case "saturday":
+                echo "sabato";
+                break;
+            case "sunday":
+                echo "domenica";
+                break;
+                default:
+                echo "Giorno non valido";
+            endswitch;
+        endfor;
+
+        function calcola_media($voti) {
+            $somma = 0;
+            for ($i=0; $i < count($voti); $i++):
+                $somma += $voti[$i];
+            endfor;
+
+            $media = $somma / count($voti);
+            return $media;
+        }
+
+        //sunday 3 August 2025
+        function formatta_data($data) {
+            $parti = explode(" ", $data);
+            $giorno_della_settimana = traduci_giorno_settimana($parti[0]);
+            $giorno_del_mese = $parti[1];
+            $mese = traduci_mese($parti[2]);
+            $anno = $parti[3];
+
+            return $giorno_della_settimana . " " . $giorno_del_mese . " " . $mese . " ";
+
+        }
+
+        echo formatta_data("monday 14 september 2025");
+
+        function traduci_giorno_settimana($giorno) {
+            switch(strtolower($giorno)): //converti la stringa in formato tutto minuscolo
+            case "monday":
+                return "lunedi";
+            case "tuesday":
+                return "martedi";
+            case "wednesday":
+                return "mercoledi";
+            case "thursday":
+                return "giovedi";
+            case "friday":
+                return "venerdi";
+            case "saturday":
+                return "sabato";
+            case "sunday":
+                return "domenica";
+                default:
+                return false;
+            endswitch;
+        }
+
+        function traduci_mese($mese) {
+            switch(strtolower($mese)): //converti la stringa in formato tutto minuscolo
+            case "january":
+                return "gennaio";
+            case "february":
+                return "febbraio";
+            case "march":
+                return "marzo";
+            case "april":
+                return "aprile";
+            case "may":
+                return "maggio";
+            case "june":
+                return "giugno";
+            case "july":
+                return "luglio";
+            case "august":
+                return "agosto";
+            case "september":
+                return "settembre";
+            case "october":
+                return "ottobre";
+            case "november":
+                return "novembre";
+            case "december":
+                return "dicembre";
+                default:
+                return false;
+            endswitch;
+        }
+
 ?>

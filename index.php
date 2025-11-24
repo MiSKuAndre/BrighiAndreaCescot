@@ -83,4 +83,54 @@
     else:
         echo "Condizione falsa";
     endif;
+
+    /*CALCOLA LA MEDIA DEI VOTI*/
+    $voti = [6, 7, 7.5, 4, 9, 8];
+
+    $somma = 0;
+    $num_voti = 0;
+
+    for($i = 0; $i < count($voti); $i++): /*COUNT conta gli elementi che ci sono in un array*/
+        if($voti[$i] > 0 && $voti[$i] <= 10): 
+           $somma = $somma + $voti[$i];
+           $num_voti++;
+        endif;
+    endfor;
+
+    echo "La somma dei voti è: " . $somma;
+    echo "Il numero dei voti è: " . $num_voti;
+    echo "Il numero di voti validi è: " . $num_voti;
+
+    $media=$somma/$num_voti;
+    echo "La media dei voti è: " . $media;
+
+    /*VERIFICA SE IL NUMERO INSERITO E' ALL'INTERNO DELL'ARRAY*/
+    $numero = 45;
+    $valori = [1, 3, 6, 87, 23, 5, 45, 17, 89, 12, 34];
+
+    $trovato = false;
+    $i = 0;
+
+    /*CON IL CICLO WHILE*/
+    while (!$trovato && $i < count($valori)) : 
+        if ($valori[$i] == $numero) :
+            $trovato = true;
+        endif;
+        $i++;
+    endwhile;
+
+    if($trovato) :
+        echo $numero . "è presente nell'array";
+    else:
+        echo $numero . "non è presente nell'array";
+    endif;
+
+     /*CON IL CICLO FOR*/
+    /*for($i=0; !$trovato && $i < count($valori); $i++):
+        if ($valori[$i] == $numero) :
+            $trovato = true;
+            break; serve per rompere il ciclo, per far si che il programma non continui la ricerca una volta trovato quel numero
+        endif;
+    endfor;*/
+
 ?>
